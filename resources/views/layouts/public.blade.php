@@ -104,11 +104,11 @@
                                                         <li>
                                                             <a role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i> Mój profil</a>
                                                         </li>
-                                                        @if(Auth::user()->hasRole('Administrator'))
+                                                        @role('admin')
                                                         <li>
                                                             <a role="menuitem" tabindex="-1" href="{{ url('/admin') }}"><i class="fa fa-lock"></i> Panel administratora</a>
                                                         </li>
-                                                        @endif
+                                                        @endrole
                                                         <li>
                                                             <a role="menuitem" tabindex="-1" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Wyloguj</a>

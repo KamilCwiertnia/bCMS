@@ -77,7 +77,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-6 col-md-offset-3">
-						{!! Form::submit('Dodaj użytkownika',['class'=>'btn btn-primary']) !!}
+						{!! Form::submit('Dodaj',['class'=>'btn btn-primary']) !!}
 					</div>
 				</div>
 				{!! Form::close() !!}

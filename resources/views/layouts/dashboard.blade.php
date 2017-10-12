@@ -239,6 +239,9 @@
 					<div class="dropdown-menu">
 						<ul class="list-unstyled">
 							<li class="divider"></li>
+														<li>
+								<a role="menuitem" tabindex="-1" href="{{ url('/') }}"><i class="fa fa-globe"></i> Strona główna</a>
+							</li>
 							<li>
 								<a role="menuitem" tabindex="-1" href="{{ url('admin/users', Auth::user()->id) }}"><i class="fa fa-user"></i> Mój profil</a>
 							</li>

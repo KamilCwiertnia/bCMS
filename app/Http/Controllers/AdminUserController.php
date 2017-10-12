@@ -17,6 +17,7 @@ class AdminUserController extends Controller
 	{
 		$header = 'Użytkownicy';
 		$users = User::with("roles")->get();
+
 		return view('pages.admin.users.index', compact('header', 'users'));
 	}
 
@@ -24,13 +25,15 @@ class AdminUserController extends Controller
 	{
 		$header = 'Użytkownicy';
 		$user = User::find($id);
+
 		return view('pages.admin.users.show', compact('header', 'user'));
 	}
 
 	public function create()
 	{
-		$header = 'Użytkownicy';
+		$header = 'Dodaj użytkownika';
 		$roles = Role::pluck('display_name','id');
+		
 		return view('pages.admin.users.create', compact('header', 'roles'));	
 	}
 
@@ -56,15 +59,34 @@ class AdminUserController extends Controller
 		return view('pages.admin.users.edit', compact('user', 'header','roles'));  
 	}
 
-    public function update(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-        $user->roles()->sync($request->input('roles'));
+	public function update(Request $request, $id)
+	{
+		$user = User::findOrFail($id);
+		$user->update($request->all());
+		$user->roles()->sync($request->input('roles'));
 
-        Session::flash('message', 'Dane użytkownika zostały zmienione.');
+		Session::flash('message', 'Dane użytkownika zostały zmienione.');
 
-        return redirect('/admin/users');
-    }
+		return redirect('/admin/users');
+	}
 
-}
+	public function destroy($id)
+	{
+		if($id == Auth::user()->id)
+			{
+				Session::flash('message_error', 'Nie można usunąć zalogowanego obecnie użytkownika');
+				return redirect('admin/users');
+			}
+		elseif($id == 1)
+		{
+			Session::flash('message_error', 'Nie można usunąć administratora!');
+			return redirect('admin/users');
+		}
+		User::destroy($id);
+
+		Session::flash('message_error', 'Użytkownik został usunięty');
+
+		return redirect('admin/users');
+		}
+
+	}

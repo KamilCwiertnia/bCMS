@@ -6,7 +6,7 @@
 		<section class="panel">
 			<header class="panel-heading">
 				<div class="panel-actions-buttons">
-					<a  href="{{ url('admin/users/create') }}" class="mb-xs mt-xs mr-xs btn btn-primary">Dodaj użytkownika</a>
+					<a  href="{{ url('admin/users/create') }}" class="mb-xs mt-xs mr-xs btn btn-primary">Dodaj</a>
 				</div>
 
 				<h2 class="panel-title">{{  $header }}</h2>
@@ -28,8 +28,8 @@
 						</thead>
 						<tbody>
 							@foreach($users as $user)
-							@if($user == Auth::check())
-							<tr >
+							@if(Auth::id() == $user->id)
+							<tr class="success">
 								@else
 								<tr>
 									@endif
@@ -53,7 +53,7 @@
 									<td class="actions-hover actions-fade text-right">
 										<a href="{{ url('admin/users', $user->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pokaż"><i class="fa fa-info"></i></a>
 										<a href="{{ action('AdminUserController@edit', $user->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a>
-										<a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a>
+										<a href="{{ action('AdminUserController@destroy', $user->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a>
 									</td>
 								</tr>
 								@endforeach
@@ -64,5 +64,4 @@
 			</section>
 		</div>
 	</div>
-
 	@endsection
