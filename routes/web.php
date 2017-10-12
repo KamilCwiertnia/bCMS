@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PagesController@index');
+Auth::routes();
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+	Route::get('/', 'AdminController@index');
+	
+	Route::get('users', 'AdminUserController@index');
+	Route::get('users/create', 'AdminUserController@create');
+	Route::post('users/create', 'AdminUserController@store');
+	Route::get('users/{id}', 'AdminUserController@show');
+	Route::get('users/{id}/edit', 'AdminUserController@edit');
+	Route::put('users/{id}', 'AdminUserController@update');	
+	Route::patch('users/{id}', 'AdminUserController@update');	
 });
+
+
