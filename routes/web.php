@@ -16,6 +16,7 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 	Route::get('/', 'AdminController@index');
 
+	//Portfolio
 	Route::get('users', 'AdminUserController@index');
 	Route::get('users/create', 'AdminUserController@create');
 	Route::post('users/create', 'AdminUserController@store');
@@ -25,9 +26,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 	Route::patch('users/{id}', 'AdminUserController@update');
 	Route::get('users/{id}/delete', 'AdminUserController@destroy');	
 
+	// Role
 	Route::get('roles', 'RoleController@index');
 	Route::get('roles/create', 'RoleController@create');
 	Route::post('roles/create', 'RoleController@store');
+	Route::get('roles/{id}/edit', 'RoleController@edit');
+	Route::put('roles/{id}', 'RoleController@update');	
+	Route::patch('roles/{id}', 'RoleController@update');
+	Route::get('roles/{id}/delete', 'RoleController@destroy');
+
+	//Portfolio
+	Route::get('portfolio', 'PortfolioController@index');
+	Route::get('portfolio/create', 'PortfolioController@create');
+	Route::post('portfolio/create', 'PortfolioController@store');
+	Route::get('portfolio/{id}', 'PortfolioController@show');
+
+
 
 });
 

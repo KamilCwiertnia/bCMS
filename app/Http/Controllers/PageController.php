@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Portfolio;
 
-class PagesController extends Controller
+class PageController extends Controller
 {
 	public function index()
 	{
-		return view('pages.index');
+		$portfolios = Portfolio::get();
+
+		return view('pages.index', compact('portfolios'));
 	}
 
 	public function aboutus()
