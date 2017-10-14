@@ -29,10 +29,17 @@
 								<td>{{  $role->id }}</td>
 								<td>{{  $role->name }}</td>
 								<td>{{  $role->display_name }}</td>
+<<<<<<< HEAD
 								<td>{{  $role->description }}</td>
 								<td class="actions-hover actions-fade text-right">
 									<a href="{{ action('RoleController@edit', $role->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a>
 									<a href="{{ action('RoleController@destroy', $role->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a>
+=======
+								<td>{{  str_limit($role->description,'100') }}</td>
+								<td class="actions-hover actions-fade text-right">
+									<a href="{{ action('RoleController@edit', $role->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a>
+									<a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a>
+>>>>>>> master
 								</td>
 							</tr>
 							@endforeach

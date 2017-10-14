@@ -257,15 +257,23 @@
                 </div>
             </div>
             <ul class="image-gallery sort-destination full-width mb-none">
+<<<<<<< HEAD
                 @foreach($portfolios as $portfolio)
+=======
+>>>>>>> master
                 <li class="isotope-item">
                     <div class="image-gallery-item mb-none">
                         <a href="portfolio-single-small-slider.html">
                             <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
                                 <span class="thumb-info-wrapper">
+<<<<<<< HEAD
                                     <img src="/uploads/projects/miniature/{{ $portfolio->miniature }}" class="img-responsive" alt="{{ $portfolio->name }}">
                                     <span class="thumb-info-title">
                                         <span class="thumb-info-inner">{{ $portfolio->name }}</span>
+=======
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
                                         <span class="thumb-info-type">Project Type</span>
                                     </span>
                                     <span class="thumb-info-action">
@@ -276,7 +284,173 @@
                         </a>
                     </div>
                 </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="image-gallery-item mb-none">
+                        <a href="portfolio-single-small-slider.html">
+                            <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-responsive" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Project Title</span>
+>>>>>>> master
+                                        <span class="thumb-info-type">Project Type</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+<<<<<<< HEAD
                 @endforeach
+=======
+>>>>>>> master
             </ul>
             <div class="container">
                 <div class="row center"> 

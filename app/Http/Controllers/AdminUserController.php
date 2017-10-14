@@ -73,15 +73,26 @@ class AdminUserController extends Controller
 	public function destroy($id)
 	{
 		if($id == Auth::user()->id)
+<<<<<<< HEAD
 		{
 				Session::flash('message_error', 'Nie można usunąć zalogowanego obecnie użytkownika');
 				return redirect('admin/users');
 		}
+=======
+			{
+				Session::flash('message_error', 'Nie można usunąć zalogowanego obecnie użytkownika');
+				return redirect('admin/users');
+			}
+>>>>>>> master
 		elseif($id == 1)
 		{
 			Session::flash('message_error', 'Nie można usunąć administratora!');
 			return redirect('admin/users');
 		}
+<<<<<<< HEAD
+=======
+		
+>>>>>>> master
 		User::destroy($id);
 
 		Session::flash('message_error', 'Użytkownik został usunięty');
@@ -89,5 +100,9 @@ class AdminUserController extends Controller
 		return redirect('admin/users');
 		}
 
+<<<<<<< HEAD
 	} 
 
+=======
+	}
+>>>>>>> master
