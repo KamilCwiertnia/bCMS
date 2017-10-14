@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use EntrustUserTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +18,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 
+        'surname',
+        'avatar',
+        'email', 
+        'password',
     ];
 
     /**
@@ -26,4 +33,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function loginlogs(){
+        return $this->hasMany('App\LoginLogs')->orderBY('last_login', 'DESC');
+    }
+    
+    public function loginlogsCount(){
+        return $this->loginlogs()->count();
+    }
+
+
 }
