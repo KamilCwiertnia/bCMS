@@ -65,7 +65,7 @@ class AdminUserController extends Controller
 		$user->update($request->all());
 		$user->roles()->sync($request->input('roles'));
 
-		Session::flash('message', 'Dane użytkownika zostały zmienione.');
+		Session::flash('message_success', 'Dane użytkownika zostały zmienione.');
 
 		return redirect('/admin/users');
 	}
@@ -82,6 +82,7 @@ class AdminUserController extends Controller
 			Session::flash('message_error', 'Nie można usunąć administratora!');
 			return redirect('admin/users');
 		}
+		
 		User::destroy($id);
 
 		Session::flash('message_error', 'Użytkownik został usunięty');

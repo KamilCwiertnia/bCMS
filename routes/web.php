@@ -13,7 +13,7 @@
 
 Route::get('/', 'PageController@index');
 Auth::routes();
-Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin','role:admin']], function() {
 	Route::get('/', 'AdminController@index');
 
 	Route::get('users', 'AdminUserController@index');
@@ -28,6 +28,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 	Route::get('roles', 'RoleController@index');
 	Route::get('roles/create', 'RoleController@create');
 	Route::post('roles/create', 'RoleController@store');
+	Route::get('roles/{id}/edit', 'RoleController@edit');
+	Route::put('roles/{id}', 'RoleController@update');	
+	Route::patch('roles/{id}', 'RoleController@update');
 
 });
 
