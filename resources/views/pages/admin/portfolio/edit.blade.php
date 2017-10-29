@@ -21,7 +21,7 @@
 				<h2 class="panel-title">{{ $header }}</h2>
 			</header>
 			<div class="panel-body">
-				{!! Form::open(['action' => 'PortfolioController@store', 'method' => 'POST', 'class'=>'form-horizontal form-bordered', 'files' => true]) !!}
+				{!! Form::model($portfolio, ['method'=>'PUT','class'=>'form-horizontal', 'files' => true, 'action'=>['PortfolioController@update', $portfolio->id]]) !!}
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-md-8">
@@ -80,12 +80,12 @@
 									{!! Form::file('preview', null,['class'=>'form-control', 'placeholder'=>'Podgląd']) !!}
 								</div>
 							</div>
-								<div class="form-group">
-									{!! Form::label('category_id','Kategoria',['class'=>'col-md-3 control-label']) !!}
-									<div class="col-md-9">
-										{!! Form::select('category_id', $categories, null, ['class' => 'form-control mb-md']) !!}
-									</div>
+							<div class="form-group">
+								{!! Form::label('category_id','Kategoria',['class'=>'col-md-3 control-label']) !!}
+								<div class="col-md-9">
+									{!! Form::select('category_id', $categories, null, ['class' => 'form-control mb-md']) !!}
 								</div>
+							</div>
 							<div class="form-group">
 								<div class="col-md-9">	
 									{!! Form::label('status','Publiczny',['class' =>'col-md-3 control-label']) !!}

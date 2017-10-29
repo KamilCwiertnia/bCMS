@@ -6,15 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Role;
 
-<<<<<<< HEAD
 use Session;
 
-=======
-use Auth;
-use Session;
-
-
->>>>>>> master
 class RoleController extends Controller
 {
     public function index()
@@ -45,26 +38,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::findOrFail($id);
-<<<<<<< HEAD
         $header = $role->display_name.' - Edytuj';
 
         return view('pages.admin.roles.edit', compact('role', 'header'));  
-=======
-        $header = $role->display_name. '- Edytuj';
-
-        if($id == 1)
-        {
-             Session::flash('message_error', 'Nie można edytować tej roli');
-             return redirect('admin/roles');
-        }
-        elseif($id == 2)
-        {
-             Session::flash('message_error', 'Nie można edytować tej roli');
-             return redirect('admin/roles');
-        }
-
-        return view('pages.admin.roles.edit', compact('role', 'header')); 
->>>>>>> master
     }
 
     public function update(Request $request, $id)
@@ -79,7 +55,6 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
-<<<<<<< HEAD
         if($id == 1)
         {
                 Session::flash('message_error', 'Nie można usunąć tej roli!');
@@ -96,8 +71,4 @@ class RoleController extends Controller
 
         return redirect('admin/roles');
         }
-=======
-        
-    }
->>>>>>> master
 }

@@ -26,8 +26,8 @@
 										<a href="{{ url('admin/portfolio', $portfolio->id) }}" class="mg-zoom"><i class="fa fa-info"></i></a>
 										<div class="mg-toolbar">
 											<div class="text-right">
-												<a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a> 
-												<a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a> 
+												<a href="{{ action('PortfolioController@edit', $portfolio->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a> 
+												<a href="{{ action('PortfolioController@destroy', $portfolio->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a> 
 												
 											</div>
 										</div>
@@ -36,7 +36,9 @@
 
 								<h5 class="mg-title text-weight-semibold">{{ $portfolio->name }}</h5>
 								<div class="mg-description">
-									<small class="pull-left text-muted">type</small>
+									<small class="pull-left label label-primary">
+										{{ $portfolio->categories->display_name }}		
+									</small>
 									<small class="pull-right text-muted">{{ $portfolio->project_date }}</small>
 								</div>
 							</div>

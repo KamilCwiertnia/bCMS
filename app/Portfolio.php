@@ -15,6 +15,12 @@ class Portfolio extends Model
 		'live_preview_url',
 		'client_name',
 		'status',
+		'category_id',
 		'project_date',
 	];
+
+    public function categories()
+    {
+        return $this->hasOne('App\CategoryPortfolio', 'id', 'category_id');
+    }
 }

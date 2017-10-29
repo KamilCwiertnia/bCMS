@@ -164,10 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
-<<<<<<< HEAD
         Intervention\Image\ImageServiceProvider::class,
-=======
->>>>>>> master
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -233,10 +231,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-<<<<<<< HEAD
         'Image' => Intervention\Image\Facades\Image::class,
-=======
->>>>>>> master
 
     ],
 

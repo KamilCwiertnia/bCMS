@@ -13,16 +13,10 @@
 
 Route::get('/', 'PageController@index');
 Auth::routes();
-<<<<<<< HEAD
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 	Route::get('/', 'AdminController@index');
 
 	//Portfolio
-=======
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin','role:admin']], function() {
-	Route::get('/', 'AdminController@index');
-
->>>>>>> master
 	Route::get('users', 'AdminUserController@index');
 	Route::get('users/create', 'AdminUserController@create');
 	Route::post('users/create', 'AdminUserController@store');
@@ -32,17 +26,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin','role:a
 	Route::patch('users/{id}', 'AdminUserController@update');
 	Route::get('users/{id}/delete', 'AdminUserController@destroy');	
 
-<<<<<<< HEAD
 	// Role
-=======
->>>>>>> master
 	Route::get('roles', 'RoleController@index');
 	Route::get('roles/create', 'RoleController@create');
 	Route::post('roles/create', 'RoleController@store');
 	Route::get('roles/{id}/edit', 'RoleController@edit');
 	Route::put('roles/{id}', 'RoleController@update');	
 	Route::patch('roles/{id}', 'RoleController@update');
-<<<<<<< HEAD
 	Route::get('roles/{id}/delete', 'RoleController@destroy');
 
 	//Portfolio
@@ -50,10 +40,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin','role:a
 	Route::get('portfolio/create', 'PortfolioController@create');
 	Route::post('portfolio/create', 'PortfolioController@store');
 	Route::get('portfolio/{id}', 'PortfolioController@show');
+	Route::get('portfolio/{id}/edit', 'PortfolioController@edit');
+	Route::put('portfolio/{id}', 'PortfolioController@update');	
+	Route::patch('portfolio/{id}', 'PortfolioController@update');
+	Route::get('portfolio/{id}/delete', 'PortfolioController@destroy');
+
+	//Kategorie Portfolio
+	Route::get('category-portfolio', 'CategoryPortfolioController@index');
 
 
-=======
->>>>>>> master
 
 });
 
