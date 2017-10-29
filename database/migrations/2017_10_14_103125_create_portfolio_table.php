@@ -17,6 +17,7 @@ class CreatePortfolioTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->string('display_name');
+            $table->text('description');
             $table->timestamps();
         });
 

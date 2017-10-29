@@ -12,8 +12,11 @@
 */
 
 Route::get('/', 'PageController@index');
+Route::get('/profil', 'ProfileController@index');
+
 Auth::routes();
-Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+
+Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin','role:admin']], function() {
 	Route::get('/', 'AdminController@index');
 
 	//Portfolio
@@ -47,6 +50,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
 	//Kategorie Portfolio
 	Route::get('category-portfolio', 'CategoryPortfolioController@index');
+	Route::get('category-portfolio/create', 'CategoryPortfolioController@create');
+	Route::post('category-portfolio/create', 'CategoryPortfolioController@store');
+	Route::get('category-portfolio/{id}/edit', 'CategoryPortfolioController@edit');
+	Route::put('category-portfolio/{id}', 'CategoryPortfolioController@update');	
+	Route::patch('category-portfolio/{id}', 'CategoryPortfolioController@update');
+	Route::get('category-portfolio/{id}/delete', 'CategoryPortfolioController@destroy');
 
 
 

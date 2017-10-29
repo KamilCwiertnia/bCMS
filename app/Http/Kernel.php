@@ -26,6 +26,7 @@ class Kernel extends HttpKernel
         \RenatoMarinho\LaravelPageSpeed\Middleware\TrimUrls::class,
         \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
         \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class,
+
     ];
 
     /**
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
         'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+        'isAdmin' => \App\Http\Middleware\isAdmin::class,
     ];
 }

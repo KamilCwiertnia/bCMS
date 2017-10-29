@@ -6,7 +6,7 @@
 		<section class="panel">
 			<header class="panel-heading">
 				<div class="panel-actions-buttons">
-					<a  href="{{ url('admin/roles/create') }}" class="mb-xs mt-xs mr-xs btn btn-primary">Dodaj</a>
+					<a  href="{{ url('admin/category-portfolio/create') }}" class="mb-xs mt-xs mr-xs btn btn-primary">Dodaj</a>
 				</div>
 
 				<h2 class="panel-title">{{  $header }}</h2>
@@ -19,6 +19,7 @@
 								<th>Id</th>
 								<th>Nazwa</th>
 								<th>Wyświetlana nazwa</th>
+								<th>Opis</th>
 								<th class="text-right">Akcja</th>
 							</tr>
 						</thead>
@@ -28,9 +29,10 @@
 								<td>{{  $category->id }}</td>
 								<td>{{  $category->name }}</td>
 								<td>{{  $category->display_name }}</td>
+								<td>{{  $category->description }}</td>
 								<td class="actions-hover actions-fade text-right">
-									<a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a>
-									<a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a>
+									<a href="{{ action('CategoryPortfolioController@edit', $category->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a>
+									<a href="{{ action('CategoryPortfolioController@destroy', $category->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a>
 								</td>
 							</tr>
 							@endforeach

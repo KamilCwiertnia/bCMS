@@ -102,7 +102,7 @@
                                                     <ul class="list-unstyled">
                                                         <li class="divider"></li>
                                                         <li>
-                                                            <a role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i> Mój profil</a>
+                                                            <a href='/profil' role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i> Mój profil</a>
                                                         </li>
                                                         @role('admin')
                                                         <li>
