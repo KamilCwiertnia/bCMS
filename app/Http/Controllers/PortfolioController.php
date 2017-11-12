@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Portfolio;
 use App\CategoryPortfolio;
+use App\SkillPortfolio;
 
 
 use Session;
@@ -25,89 +26,117 @@ class PortfolioController extends Controller
 	{
 		$header = 'Dodaj projekt';
 		$categories = CategoryPortfolio::pluck('display_name','id');
+		$skills = SkillPortfolio::pluck('display_name','id');
 
-		return view('pages.admin.portfolio.create', compact('header', 'categories'));
+		return view('pages.admin.portfolio.create', compact('header', 'categories', 'skills'));
 	}
 
 	public function store(Request $request)
 	{
 		$portfolio = new Portfolio($request->all());
 
-		if($request->hasFile('miniature')){
-			$image = $request->file('miniature');
-			$filename = md5(uniqid(rand(), true)) . "." . $image->getClientOriginalExtension();
-            Image::make($image)->resize(500, 500)->save( public_path('/uploads/projects/miniature/' . $filename ));
-          	$portfolio->miniature = $filename;
-        }else{
-        	$portfolio->miniature = 'default.jpg';
-        }
-		if($request->hasFile('preview')){
-			$image = $request->file('preview');
-			$filename = md5(uniqid(rand(), true)) . "." . $image->getClientOriginalExtension();
-            Image::make($image)->resize(500, 500)->save( public_path('/uploads/projects/' . $filename ));
-          	$portfolio->preview = $filename;
-        }else{
-        	$portfolio->preview = 'default.jpg';
-        }
+		if($request->hasFile('miniature') and $request->hasFile('preview'))
+		{
+			$miniature = $request->file('miniature');
+			$filename = md5(uniqid(rand(), true)) . "." . $miniature->getClientOriginalExtension();
+			Image::make($miniature)->resize(500, 500)->save( public_path('/uploads/projects/miniature/' . $filename ));
+			$portfolio->miniature = $filename;
 
-        $portfolio->save();
+			$preview = $request->file('preview');
+			$filename = md5(uniqid(rand(), true)) . "." . $preview->getClientOriginalExtension();
+			Image::make($preview)->resize(500, 500)->save( public_path('/uploads/projects/' . $filename ));
+			$portfolio->preview = $filename;
+		}
+		else
+		{
+			$portfolio->miniature = 'default.jpg';
+		}
 
-        Session::flash('message_success','Projekt został dodany do portfolio');
+		$portfolio->save();
+        $portfolio->skills()->attach($request->input('SkillList'));
 
-        return redirect('admin/portfolio');
-    }
+		Session::flash('message_success','Projekt został dodany do portfolio');
 
-    public function show($id)
-    {
-    	$header = 'Portfolio';
-    	$portfolio = Portfolio::find($id);
+		return redirect('admin/portfolio');
+	}
 
-    	return view('pages.admin.portfolio.show', compact('header', 'portfolio'));
-    }
+	public function show($id)
+	{
+		$header = 'Portfolio';
+		$portfolio = Portfolio::find($id);
 
-    public function edit($id)
-    {
- 		$portfolio = Portfolio::with('categories')->findOrFail($id);
+		return view('pages.admin.portfolio.show', compact('header', 'portfolio'));
+	}
+
+	public function edit($id)
+	{
+		$portfolio = Portfolio::with('categories')->findOrFail($id);
 		$categories = CategoryPortfolio::pluck('display_name','id');
+		$skills = SkillPortfolio::pluck('display_name','id');
 		$header = $portfolio->name.' - Edytuj';   
 
-		return view('pages.admin.portfolio.edit', compact('header', 'portfolio', 'categories'));	
-    }
+		return view('pages.admin.portfolio.edit', compact('header', 'portfolio', 'categories','skills'));	
+	}
 
 	public function update(Request $request, $id)
 	{
-        $portfolio = Portfolio::findOrFail($id);
+		$portfolio = Portfolio::findOrFail($id);
 
-        $portfolio->update($request->all());
+		$portfolio->update($request->all());
 
-		if($request->hasFile('miniature')){
-			$image = $request->file('miniature');
-			$filename = md5(uniqid(rand(), true)) . "." . $image->getClientOriginalExtension();
-            Image::make($image)->resize(500, 500)->save( public_path('/uploads/projects/miniature/' . $filename ));
-          	$portfolio->miniature = $filename;
-        }else{
-        	$portfolio->miniature = $portfolio->miniature;
-        }
-		if($request->hasFile('preview')){
-			$image = $request->file('preview');
-			$filename = md5(uniqid(rand(), true)) . "." . $image->getClientOriginalExtension();
-            Image::make($image)->resize(500, 500)->save( public_path('/uploads/projects/' . $filename ));
-          	$portfolio->preview = $filename;
-        }else{
-        	$portfolio->preview = $portfolio->preview;
-        }
+		if($request->hasFile('miniature') and $request->hasFile('preview'))
+		{
+			$miniature = $request->file('miniature');
+			$filename = md5(uniqid(rand(), true)) . "." . $miniature->getClientOriginalExtension();
+			Image::make($miniature)->resize(500, 500)->save( public_path('/uploads/projects/miniature/' . $filename ) );
+
+			$old_miniature = $portfolio->miniature;
+			$old_preview = $portfolio->preview;
+			$portfolio->miniature = $filename;
+			$portfolio->preview = $filename;
+			$portfolio->save();
+
+			if($old_miniature != "default.jpg" and $old_preview != "default.jpg")
+			{
+				if(file_exists(public_path('/uploads/projects/miniature/' . $old_miniature)))
+				{
+					unlink(public_path('/uploads/projects/miniature/' . $old_miniature));
+				}
+				if(file_exists(public_path('/uploads/projects/' . $old_preview)))
+				{
+					unlink(public_path('/uploads/projects/' . $old_preview));
+				}
+			}  
+		}
+		
+		$portfolio->skills()->sync($request->input('SkillList'));
 
 		Session::flash('message_success', 'Zmiany zostały zmienione.');
 
-		return redirect('/admin/portfolio');
+		return redirect('/admin/portfolio');  
 	}
 
-    public function destroy($id)
-    {
-		Portfolio::destroy($id);
+	public function destroy($id)
+	{
+		$portfolio = Portfolio::findOrFail($id);
+		$old_miniature = $portfolio->miniature;
+		$old_preview = $portfolio->preview;
+		$portfolio->delete();
+
+		if($old_miniature != "default.jpg" and $old_preview != "default.jpg")
+		{
+			if(file_exists(public_path('/uploads/projects/miniature/' . $old_miniature)))
+			{
+				unlink(public_path('/uploads/projects/miniature/' . $old_miniature));
+			}
+			if(file_exists(public_path('/uploads/projects/' . $old_preview)))
+			{
+				unlink(public_path('/uploads/projects/' . $old_preview));
+			}
+		} 
 
 		Session::flash('message_error', 'Obiekt został usunięty');
 
 		return redirect('admin/portfolio');
-    }
+	}
 }

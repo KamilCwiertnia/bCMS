@@ -47,7 +47,7 @@ class CreatePortfolioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portfolio_categories');
+        Schema::dropIfExists('category_portfolios');
         Schema::dropIfExists('portfolio');
     }
 }

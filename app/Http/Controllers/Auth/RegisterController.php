@@ -68,6 +68,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'avatar' => 'default.png',
             'password' => bcrypt($data['password']),
+            'description' => '',
+            'facebook_url' => '',
+            'gplus_url' => '',
+            'instagram_url' => '',
         ]);
 
         $user->roles()->attach(2);

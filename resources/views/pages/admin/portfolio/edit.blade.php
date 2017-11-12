@@ -63,7 +63,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-md-3 col-md-offset-11">
-									{!! Form::submit('Dodaj',['class'=>'btn btn-primary']) !!}
+									{!! Form::submit('Zapisz',['class'=>'btn btn-primary']) !!}
 								</div>
 							</div>					
 						</div>
@@ -71,12 +71,18 @@
 							<div class="form-group">
 								{!! Form::label('miniature','Miniatura',['class'=>'col-md-3 control-label']) !!}
 								<div class="col-md-9">
+									<span class="img-thumbnail">
+										<img alt="" class="img-responsive" src="/uploads/projects/miniature/{{ $portfolio->miniature }}" width='150'>
+									</span>
 									{!! Form::file('miniature', null,['class'=>'form-control', 'placeholder'=>'Miniatura']) !!}
 								</div>
 							</div>
 							<div class="form-group">
 								{!! Form::label('preview','Podgląd',['class' =>'col-md-3 control-label']) !!}
 								<div class="col-md-9">
+									<span class="img-thumbnail">
+										<img alt="" class="img-responsive" src="/uploads/projects/{{ $portfolio->preview }}" width='150'>
+									</span>
 									{!! Form::file('preview', null,['class'=>'form-control', 'placeholder'=>'Podgląd']) !!}
 								</div>
 							</div>
@@ -86,6 +92,12 @@
 									{!! Form::select('category_id', $categories, null, ['class' => 'form-control mb-md']) !!}
 								</div>
 							</div>
+							<div class="form-group">
+								{!! Form::label('SkillList','Skills',['class'=>'col-md-3 control-label']) !!}
+								<div class="col-md-9">
+									{!! Form::select('SkillList[]', $skills, null, ['class' => 'form-control','multiple' => true]) !!}
+								</div>
+							</div>							
 							<div class="form-group">
 								<div class="col-md-9">	
 									{!! Form::label('status','Publiczny',['class' =>'col-md-3 control-label']) !!}

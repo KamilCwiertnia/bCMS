@@ -60,10 +60,10 @@
 								<h5 class="mt-sm mb-xs">Skills</h5>
 
 								<ul class="list list-inline list-icons">
-									<li><i class="fa fa-check-circle"></i> Design</li>
-									<li><i class="fa fa-check-circle"></i> HTML/CSS</li>
-									<li><i class="fa fa-check-circle"></i> Javascript</li>
-									<li><i class="fa fa-check-circle"></i> Backend</li>
+									@foreach($portfolio->skills as $skill)
+									<li><i class="fa fa-check-circle"></i> {{ $skill->display_name}}</li>
+									@endforeach
+
 								</ul>
 							</li>
 							<li>

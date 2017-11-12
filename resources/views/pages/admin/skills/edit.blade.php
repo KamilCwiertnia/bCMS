@@ -13,7 +13,7 @@
 				<h2 class="panel-title">{{ $header }}</h2>
 			</header>
 			<div class="panel-body">
-				{!! Form::model($categories, ['method'=>'PATCH','class'=>'form-horizontal', 'action'=>['CategoryPortfolioController@update', $categories->id]]) !!}
+				{!! Form::model($skill, ['method'=>'PATCH','class'=>'form-horizontal', 'action'=>['SkillPortfolioController@update', $skill->id]]) !!}
 				<div class="form-group">
 					{!! Form::label('name','Nazwa',['class'=>'col-md-3 control-label']) !!}
 					<div class="col-md-6">

@@ -63,7 +63,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-md-3 col-md-offset-11">
-									{!! Form::submit('Dodaj',['class'=>'btn btn-primary']) !!}
+									{!! Form::submit('Zapisz',['class'=>'btn btn-primary']) !!}
 								</div>
 							</div>					
 						</div>
@@ -84,6 +84,12 @@
 									{!! Form::label('category_id','Kategoria',['class'=>'col-md-3 control-label']) !!}
 									<div class="col-md-9">
 										{!! Form::select('category_id', $categories, null, ['class' => 'form-control mb-md']) !!}
+									</div>
+								</div>
+								<div class="form-group">
+									{!! Form::label('SkillList','Skills',['class'=>'col-md-3 control-label']) !!}
+									<div class="col-md-9">
+										{!! Form::select('SkillList[]', $skills, null, ['class' => 'form-control','multiple' => true]) !!}
 									</div>
 								</div>
 							<div class="form-group">

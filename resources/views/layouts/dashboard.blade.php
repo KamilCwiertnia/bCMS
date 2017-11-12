@@ -246,7 +246,7 @@
 								<a role="menuitem" tabindex="-1" href="{{ url('admin/users', Auth::user()->id) }}"><i class="fa fa-user"></i> Mój profil</a>
 							</li>
 							<li>
-								<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>
+								<a role="menuitem" href="{{ url('admin/lockscreen') }}"><i class="fa fa-lock"></i> Lock Screen</a>
 							</li>
 							<li>
 								<a role="menuitem" tabindex="-1" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -312,6 +312,7 @@
 									<li>
 										<a href="{{ url('admin/portfolio') }}">Lista</a>
 										<a href="{{ url('admin/category-portfolio') }}">Kategorie</a>
+										<a href="{{ url('admin/skill-portfolio') }}">Skills</a>
 									</li>
 								</ul>
 							</li>

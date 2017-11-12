@@ -26,7 +26,7 @@
 										<a href="{{ url('admin/portfolio', $portfolio->id) }}" class="mg-zoom"><i class="fa fa-info"></i></a>
 										<div class="mg-toolbar">
 											<div class="text-right">
-												<a href="{{ action('PortfolioController@edit', $portfolio->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i></a> 
+												<a href="{{ action('PortfolioController@edit', $portfolio->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edytuj"><i class="fa fa-pencil-square-o"></i> </a> 
 												<a href="{{ action('PortfolioController@destroy', $portfolio->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash-o"></i></a> 
 												
 											</div>

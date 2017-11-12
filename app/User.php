@@ -23,6 +23,10 @@ class User extends Authenticatable
         'avatar',
         'email', 
         'password',
+        'description',
+        'facebook_url',
+        'gplus_url',
+        'instagram_url',
     ];
 
     /**

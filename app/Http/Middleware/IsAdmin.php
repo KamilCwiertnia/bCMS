@@ -22,7 +22,7 @@ class IsAdmin
         $actions = $request->route()->getAction();
         $roles = isset($actions['roles']) ? $actions['roles'] : null;
 
-        if ($request->user()->hasRole($roles)) {
+        if ($request->user()->hasRole('admin')) {
             return $next($request);
         }
 

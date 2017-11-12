@@ -12,12 +12,15 @@
 */
 
 Route::get('/', 'PageController@index');
-Route::get('/profil', 'ProfileController@index');
+
+Route::get('/profil', 'ProfileController@index')->middleware('auth');
 
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin','role:admin']], function() {
 	Route::get('/', 'AdminController@index');
+	Route::get('lockscreen', 'LockScreenController@lockscreen');
+	Route::post('lockscreen', 'LockScreenController@unlock');
 
 	//Portfolio
 	Route::get('users', 'AdminUserController@index');
@@ -57,6 +60,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin','role:admin']], fu
 	Route::patch('category-portfolio/{id}', 'CategoryPortfolioController@update');
 	Route::get('category-portfolio/{id}/delete', 'CategoryPortfolioController@destroy');
 
+	//Skill Portfolio
+	Route::get('skill-portfolio', 'SkillPortfolioController@index');
+	Route::get('skill-portfolio/create', 'SkillPortfolioController@create');
+	Route::post('skill-portfolio/create', 'SkillPortfolioController@store');
+	Route::get('skill-portfolio/{id}/edit', 'SkillPortfolioController@edit');
+	Route::put('skill-portfolio/{id}', 'SkillPortfolioController@update');	
+	Route::patch('skill-portfolio/{id}', 'SkillPortfolioController@update');
+	Route::get('skill-portfolio/{id}/delete', 'SkillPortfolioController@destroy');
 
 
 });

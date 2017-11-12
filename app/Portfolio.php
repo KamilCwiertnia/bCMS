@@ -23,4 +23,16 @@ class Portfolio extends Model
     {
         return $this->hasOne('App\CategoryPortfolio', 'id', 'category_id');
     }
+
+    public function skills()
+    {
+    	return $this->belongsToMany('App\SkillPortfolio')->withTimestamps();
+    }
+
+    //Lista id skillów dla projektu
+    //get Nazwa_Pola Attribute
+    public function getSkillListAttribute()
+    {
+    	return $this->skills->pluck('id')->all();
+    }
 }

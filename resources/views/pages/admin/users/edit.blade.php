@@ -11,7 +11,7 @@
 						<span class="thumb-info-inner">{{ $user->name}} {{ $user->surname }}</span>
 						<span class="thumb-info-type"> 
 							@foreach($user->roles as $role)
-							{{ $role->name }}
+							{{ $role->display_name }}
 							@endforeach 
 						</span>
 					</div>
@@ -19,12 +19,12 @@
 				<hr class="dotted short">
 
 				<h6 class="text-muted">Krótki opis</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis vulputate quam. Interdum et malesuada</p>
+				<p>{{  str_limit($user->description, 150) }}</p>
 
 				<div class="social-icons-list">
-					<a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-					<a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-					<a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+					<a rel="tooltip" data-placement="bottom" target="_blank" href="{{ $user->facebook_url }}" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+					<a rel="tooltip" data-placement="bottom" href="{{ $user->gplus_url }}" data-original-title="Google+"><i class="fa fa-google-plus"></i><span>Google+</span></a>
+					<a rel="tooltip" data-placement="bottom" href="{{ $user->instagram_url }}" data-original-title="Instagram"><i class="fa fa-instagram"></i><span>Linkedin</span></a>
 				</div>
 			</div>
 		</section>
@@ -60,14 +60,51 @@
 								{!! Form::email('email', null,['class'=>'form-control', 'placeholder'=>'Adres E-mail']) !!}
 							</div>
 						</div>
+						</fieldset>
+						<hr class="dotted tall">
+						<h4 class="mb-xlg">Rola użytkownika</h4>
+						<fieldset>
 						<div class="form-group">
 							{!! Form::label('roles','Rola',['class'=>'col-md-3 control-label']) !!}
 							<div class="col-md-8">
 								{!! Form::select('roles[]', $roles, null,['class' => 'form-control mb-md']) !!}
 							</div>
 						</div>
+						</fieldset>
+					<hr class="dotted tall">	
+					<h4 class="mb-xlg">Opis</h4>
+					<fieldset>
+						<div class="form-group">
+							{!! Form::label('description','Opis',['class'=>'col-md-3 control-label']) !!}
+							<div class="col-md-8">
+								{!! Form::textarea('description', null,['class'=>'form-control']) !!}
+							</div>
+						</div>						
 					</fieldset>
 					<hr class="dotted tall">	
+					<h4 class="mb-xlg">Social Media</h4>
+					<fieldset>
+						<div class="form-group">
+							{!! Form::label('facebook_url','Facebook',['class'=>'col-md-3 control-label']) !!}
+							<div class="col-md-8">
+								{!! Form::text('facebook_url', null,['class'=>'form-control', 'placeholder'=>'Facebook']) !!}
+							</div>
+						</div>	
+						<div class="form-group">
+							{!! Form::label('gplus_url','Google+',['class'=>'col-md-3 control-label']) !!}
+							<div class="col-md-8">
+								{!! Form::text('gplus_url', null,['class'=>'form-control', 'placeholder'=>'Google+']) !!}
+							</div>
+						</div>
+						<div class="form-group">
+							{!! Form::label('instagram_url','Instagram',['class'=>'col-md-3 control-label']) !!}
+							<div class="col-md-8">
+								{!! Form::text('instagram_url', null,['class'=>'form-control', 'placeholder'=>'Instagram']) !!}
+							</div>
+						</div>					
+					</fieldset>
+					<hr class="dotted tall">	
+					<h4 class="mb-xlg">Opcje</h4>
 					<fieldset>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-3">

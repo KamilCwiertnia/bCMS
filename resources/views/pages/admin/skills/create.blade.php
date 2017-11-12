@@ -13,7 +13,7 @@
 				<h2 class="panel-title">{{ $header }}</h2>
 			</header>
 			<div class="panel-body">
-				{!! Form::model($categories, ['method'=>'PATCH','class'=>'form-horizontal', 'action'=>['CategoryPortfolioController@update', $categories->id]]) !!}
+				{!! Form::open(['action' => 'SkillPortfolioController@store', 'method' => 'POST', 'class'=>'form-horizontal form-bordered']) !!}
 				<div class="form-group">
 					{!! Form::label('name','Nazwa',['class'=>'col-md-3 control-label']) !!}
 					<div class="col-md-6">
@@ -46,7 +46,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-6 col-md-offset-3">
-						{!! Form::submit('Zapisz',['class'=>'btn btn-primary']) !!}
+						{!! Form::submit('Dodaj',['class'=>'btn btn-primary']) !!}
 					</div>
 				</div>
 				{!! Form::close() !!}

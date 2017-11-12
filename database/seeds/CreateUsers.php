@@ -18,6 +18,10 @@ class CreateUsers extends Seeder
         $user->email = "kamilcw@gmail.com";
         $user->password = bcrypt("admin123");
         $user->avatar = "default.png";
+        $user->description = " ";
+        $user->facebook_url = " ";
+        $user->gplus_url = " ";
+        $user->instagram_url = " ";
         $user->save();
         $user->roles()->attach(1);
     }
