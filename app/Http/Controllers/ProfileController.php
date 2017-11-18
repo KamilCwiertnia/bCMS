@@ -13,7 +13,7 @@ class ProfileController extends Controller
 	{
 		$user = Auth::user();
 
-		return view('profile.index', compact('user'));
+		return view('pages.profile.index', compact('user'));
 
 	}
 }

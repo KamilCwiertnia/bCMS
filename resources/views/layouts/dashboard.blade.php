@@ -303,6 +303,7 @@
 									</li>
 								</ul>
 							</li>
+							<hr class="separator') }}">
 							<li class="nav-parent">
 								<a>
 									<i class="fa fa-picture-o " aria-hidden="true"></i>
@@ -316,7 +317,12 @@
 									</li>
 								</ul>
 							</li>
-							
+							<li>
+								<a href="{{ url('admin/partners') }}">
+									<i class="fa Example of street-view fa-street-view " aria-hidden="true"></i>
+									<span>Partnerzy</span>
+								</a>
+							</li>						
 						</ul>
 					</nav>
 					
@@ -389,14 +395,12 @@
 				<div class="right-wrapper pull-right">
 					<ol class="breadcrumbs">
 						<li>
-							<a href="index.html">
+							<a href="/admin">
 								<i class="fa fa-home"></i>
 							</a>
 						</li>
 						<li><span>Administrator</span></li>
-						<!--<li><span>Administrator</span></li>-->
 					</ol>
-					
 					<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
 				</div>
 			</header>

@@ -69,6 +69,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin','role:admin']], fu
 	Route::patch('skill-portfolio/{id}', 'SkillPortfolioController@update');
 	Route::get('skill-portfolio/{id}/delete', 'SkillPortfolioController@destroy');
 
+	//Partner
+	Route::get('partners', 'PartnerController@index');
+	Route::get('partners/create', 'PartnerController@create');
+	Route::post('partners/create', 'PartnerController@store');
+
+	Route::get('partners/{id}/delete', 'PartnerController@destroy');
+
 
 });
 
