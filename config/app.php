@@ -166,6 +166,7 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
+        Unisharp\Setting\SettingServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -232,6 +233,8 @@ return [
 		'Html' => Collective\Html\HtmlFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Setting' => Unisharp\Setting\SettingFacade::class,
+
 
     ],
 

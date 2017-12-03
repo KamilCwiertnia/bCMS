@@ -42,6 +42,10 @@ class AdminUserController extends Controller
 		$user = new User($request->all());
 		$user->avatar = "default.png";
 		$user->password = bcrypt($request->password);
+		$user->description = "";
+		$user->facebook_url = "";
+		$user->gplus_url  = "";
+		$user->instagram_url = "";
 		$user->save();
 		$user->roles()->attach($request->roles);
 

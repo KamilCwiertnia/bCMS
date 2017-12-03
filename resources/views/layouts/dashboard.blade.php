@@ -322,7 +322,20 @@
 									<i class="fa Example of street-view fa-street-view " aria-hidden="true"></i>
 									<span>Partnerzy</span>
 								</a>
-							</li>						
+							</li>
+							<hr class="separator') }}">		
+							<li class="nav-parent">
+								<a>
+									<i class="fa fa-cogs" aria-hidden="true"></i>
+									<span>Ustawienia</span>
+								</a>
+								<ul class="nav nav-children">
+									<li>
+										<a href="">Lista</a>
+										<a href="">Role</a>
+									</li>
+								</ul>
+							</li>		
 						</ul>
 					</nav>
 					
